@@ -22,5 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['prefix' => 'v1'], function () {
 
     Route::get('/classify-number', [\App\Http\Controllers\Api\numbercontroller::class, 'index']);
-    Route::get('hello', [numbercontroller::class, 'two']);
+    Route::get('hello', [numbercontroller::class, 'test']);
 });
