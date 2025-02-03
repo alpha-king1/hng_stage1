@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\numbercontroller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,4 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['prefix' => 'v1'], function () {
 
     Route::get('/classify-number', [\App\Http\Controllers\Api\numbercontroller::class, 'index']);
+    Route::get('hello', [numbercontroller::class, 'two']);
 });

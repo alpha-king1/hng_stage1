@@ -99,4 +99,10 @@ class numbercontroller extends Controller
             'fun fact' => $response->body(),
         ]);
     }
+
+    public function test(){
+        return response()->json([
+            'message'=> 'hello world',
+        ]);
+    }
 }
