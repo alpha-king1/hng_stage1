@@ -88,6 +88,7 @@ class numbercontroller extends Controller
             ], 400);
         }
 
+        $number = (int)$number;
         $response = Http::get("http://numbersapi.com/{$number}");
 
         return response()->json([
