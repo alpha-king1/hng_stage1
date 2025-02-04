@@ -30,22 +30,25 @@ class numbercontroller extends Controller
     }
 
     // Check if a number is Armstrong
-    private function isArmstrong($num)
-    {
+    private function isArmstrong($num){
+        $absNum = abs($num);
         $sum = 0;
-        $digits = str_split((string)$num);
+        $digits = str_split((string)$absNum);
         $power = count($digits);
 
         foreach ($digits as $digit) {
-            $sum += pow($digit, $power);
+            $sum += pow((int)$digit, $power);
         }
 
-        return $sum === $num;
-    }
+        return $sum === $absNum;
+}
 
     // Calculate the sum of digits
     private function digitSum($num)
     {
+        if($num < 0){
+            return null;
+        }
         return array_sum(str_split((string)$num));
     }
 
@@ -81,9 +84,9 @@ class numbercontroller extends Controller
         
         $number = $request->number;
 
-        if (!ctype_digit($number)) {
+        if (!preg_match('/^-?\d+$/', $number)) {
             return response()->json([
-                'number' => $number,
+                'number' => 'alphabet',
                 'error' => true
             ], 400);
         }
