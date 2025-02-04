@@ -24,4 +24,3 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('/classify-number', [numbercontroller::class, 'index']);
     Route::get('hello', [numbercontroller::class, 'test']);
 });
-Route::get('/classify-number', [numbercontroller::class, 'index']);
