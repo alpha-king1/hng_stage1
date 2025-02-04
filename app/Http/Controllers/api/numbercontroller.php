@@ -81,7 +81,7 @@ class numbercontroller extends Controller
         
         $number = $request->number;
 
-        if (!is_numeric($number)) {
+        if (!ctype_digit($number)) {
             return response()->json([
                 'number' => $number,
                 'error' => true
