@@ -58,18 +58,10 @@ class numbercontroller extends Controller
 
     if ($num % 2 == 0) {
         $properties[] = 'even';
-    } else {
+    }
+    
+    else {
         $properties[] = 'odd';
-    }
-
-    if ($this->isPrime($num)) {
-        $properties[] = 'prime';
-    } else {
-        $properties[] = 'composite';
-    }
-
-    if ($this->isPerfect($num)) {
-        $properties[] = 'perfect';
     }
 
     if ($this->isArmstrong($num)) {
@@ -100,7 +92,7 @@ class numbercontroller extends Controller
             'is_perfect' => $this->isPerfect($number),
             'properties' => $this->getProperties($number),
             'digit_sum' => $this->digitSum($number),
-            'fun fact' => $response->body(),
+            'fun_fact' => $response->body(),
         ]);
     }
 
